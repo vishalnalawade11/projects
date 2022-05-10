@@ -72,13 +72,13 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputEmail1">User Name</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user id ">
+                      <input type="email" class="form-control" id="email_u" aria-describedby="emailHelp" placeholder="Enter user id ">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <input type="password" class="form-control" id="pass_u" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" id="u_log">Login</button>
                     <span class="mx-3"> Not have an account ? Sign up<a href="signup.html"> here</a></span>
                   </form>
 
@@ -145,9 +145,34 @@
       <script src="js/owl.carousel.min.js"></script>
       <script src="js/jquery.magnific-popup.min.js"></script>
       <script src="js/aos.js"></script>
-    
       <script src="js/main.js"></script>
-
-    
 </body>
 </html>
+<script>
+    $(()=>{
+        $("#u_log").click((e)=>{
+            e.preventDefault();
+            var userid = $("#email_u").val();
+            var pass = $("#pass_u").val();
+            if( userid == "" || pass == "")
+            {
+                alert("Please Enter All the Fields");
+            }else{
+                var dataString = "userid=" + userid  + "&pass=" + pass;
+                $.ajax({
+                    type :"POST",
+                    url :"lib/api/uservalidate.php",
+                    data:dataString,
+                    success : (res)=>{
+                       res = JSON.parse(res);
+                       alert(res.message);
+                       if(res.success) location.href = "dashbord.html";
+                    }
+                });
+            }
+            return false;
+        })
+
+    });
+
+</script>

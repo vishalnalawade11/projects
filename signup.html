@@ -73,21 +73,21 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputEmail1">User Name</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user id " required>
+                      <input type="email" class="form-control" id="email_u" aria-describedby="emailHelp" placeholder="Enter user id " required>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                      <input type="password" class="form-control" id="pass_u" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1"> Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputConfirmPasswpord" placeholder=" Confirm Password" required>
+                        <input type="password" class="form-control" id="cpass_u" placeholder=" Confirm Password" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1"> Mobile Number</label>
-                        <input type="text" class="form-control" id="exampleInputConfirmPasswpord" placeholder="Enter Mobile Number" required>
+                        <input type="text" class="form-control" id="mob_u" placeholder="Enter Mobile Number" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-primary" id="c_sign">Sign Up</button>
                     <span class="mx-3">  have an account ? Log in<a href="login.html"> here</a></span>
                   </form>
 
@@ -160,3 +160,56 @@
     
 </body>
 </html>
+<script>
+    function getDataString(){
+        var string = "";
+        var fn = arguments[arguments.length-1]
+        for(let i =0;i<arguments.length-1;i++ )
+        { 
+          if(i == 0)
+          {
+            string += fn[i]+"="+arguments[i];
+          }else{
+            string +="&"+fn[i]+"="+arguments[i];
+          }
+        }
+        return string;
+      }
+    $(()=>{
+        
+        $("#c_sign").click((e)=>{
+            e.preventDefault();
+            var userid = $("#email_u").val();
+            var pass = $("#pass_u").val();
+            var cpass = $("#cpass_u").val();
+            var mobi = $("#mob_u").val();
+
+            if(userid == "" || pass == "" || cpass == "" || mobi ==="")
+            {
+                alert("Please Enter All the Fields");
+            }
+            else{
+                if( cpass == pass)
+                {
+                    let fds = ["userid","pass","mobi"];
+                    var dataString = getDataString(userid,pass,mobi,fds);
+                    $.ajax({
+                        type:"POST",
+                        url:"lib/api/userregister.php",
+                        data: dataString,
+                        cache: false,
+                        success :(res)=>{
+                            res = JSON.parse(res);
+                            alert(res.message);
+                            location.href = "login.html";
+                        }
+
+                    });
+                }else{
+                    alert("Confirm password is not matching with password!");
+                }
+            }
+            return false;
+        })
+    });
+</script>
