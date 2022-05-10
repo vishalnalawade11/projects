@@ -15,7 +15,7 @@ if($rw!=0)
 {
     $_SESSION['user'] = $userid;
     $responsep["success"] = true;
-    $response["message"] = "user Login Successfull";
+    $response["message"] = "user Login Successfully!";
 }
 echo json_encode($response);
 ?>
