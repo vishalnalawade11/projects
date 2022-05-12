@@ -1,7 +1,6 @@
 <?php 
 session_start();
 require_once("../db.php");
-
 $response = array("success"  => false, "message" => "user Login Failed");
 $userid = $_POST['userid'];
 $pass = $_POST['pass'];
