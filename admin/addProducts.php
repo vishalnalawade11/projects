@@ -80,10 +80,10 @@ if(!isset($_SESSION['admin'])){
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Product Category</label>
-                         <select name="cars" id="p_category" name="p_category" class="form-control" required>  
+                         <select id="p_category" name="p_category" class="form-control" required>  
                             <option value="vitamins">Vitamins</option>
                             <option value="supplements">Supplements</option>
-                            <option value="nutrients">Nutrients</option>
+                            <option value="nutrients"> Nutrients</option>
                             <option value="tea-coffee">Tea &amp; Coffee</option>
                         </select>
                     </div>
@@ -177,31 +177,21 @@ if(!isset($_SESSION['admin'])){
                 alert("Please Select image");
                 return false;
             }
-            else{
-                var extension = $('#p_img').val().split('.').pop().toLowerCase();
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
-                 {
-                    alert("Invalid Image File");
-                    $('#p_img').val('');
-                    return false;
-                }           
-                else{
-                    $.ajax({
-                            type:"post",
-                            url: "../upload_img.php",
-                            data: form_data,
-                            cache:false,
-                            dataType:'json',
-                            contentType: false,
-                            processData: false,
-                            success:(res)=>{
-                                //res = JSON.parse(res);
+            else{                   
+                  $.ajax({
+                          type:"post",
+                          url: "../upload_img.php",
+                          data: form_data,
+                          cache:false,
+                          dataType:'json',
+                          contentType: false,
+                          processData: false,
+                          success:(res)=>{
                                 alert(res.message);
                                 if(res.success) $("p_frm")[0].reset();
                             }
-                        });
-                        return false;
-                    }
+                    });
+                 return false;
             }
         });
 

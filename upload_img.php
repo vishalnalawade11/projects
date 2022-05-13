@@ -9,11 +9,12 @@ $pdesc = $_POST["p_desc"];
 $pcat = $_POST["p_category"];
 $pingr = $_POST["p_ingr"];
 $price = $_POST["p_price"];
-$img = $_FILES["p_img"]["name"];
 
+$img = $_FILES["p_img"]["name"];
+echo $img;
 $target_dir = "images/upload/";
 
-$target_file = $target_dir.basename($_FILES["p_img"]["name"]);
+$target_file = $target_dir . basename($_FILES["p_img"]["name"]);
 
 // Check if file already exists
 if (file_exists($target_file)) {
@@ -23,7 +24,10 @@ else{
     // Check file size
     if ($_FILES["p_img"]["size"] > 5000000) $response["message"] ="Sorry, your file is too large.";
     else{
-        if(move_uploaded_file($_FILES["p_img"]["tmp_name"], $target_file)) {
+          $d = move_uploaded_file($_FILES["p_img"]["tmp_name"], $target_file);
+          echo $d;
+
+        if($d) {
             $query = "insert into tbl_products (productid, pname, pdescription, pimg,pcategory,pingredients,pprice)
             values('$pid','$pname','$pdesc','$img','$pcat','$pingr','$price')";
 

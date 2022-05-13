@@ -2,10 +2,12 @@
 session_start(); 
 require_once("../db.php");
 $response = array("success"  => false , "message" => "user not found");
+
+
 $userid = $_POST['userid'];
 $pass = $_POST['pass'];
 
-$query = "select * from tbl_admin where userid = '$userid'  and password = '$pass'";
+$query = "select * from tbl_admin where username = '$userid'  and password = '$pass'";
 $rs = $db->prepare($query);
 $rs->execute();
 $rw = $rs->fetch();
