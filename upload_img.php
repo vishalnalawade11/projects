@@ -11,7 +11,7 @@ $pingr = $_POST["p_ingr"];
 $price = $_POST["p_price"];
 
 $img = $_FILES["p_img"]["name"];
-echo $img;
+//echo $img;
 $target_dir = "images/upload/";
 
 $target_file = $target_dir . basename($_FILES["p_img"]["name"]);
@@ -24,10 +24,7 @@ else{
     // Check file size
     if ($_FILES["p_img"]["size"] > 5000000) $response["message"] ="Sorry, your file is too large.";
     else{
-          $d = move_uploaded_file($_FILES["p_img"]["tmp_name"], $target_file);
-          echo $d;
-
-        if($d) {
+        if(move_uploaded_file($_FILES["p_img"]["tmp_name"], $target_file)) {
             $query = "insert into tbl_products (productid, pname, pdescription, pimg,pcategory,pingredients,pprice)
             values('$pid','$pname','$pdesc','$img','$pcat','$pingr','$price')";
 
@@ -36,7 +33,7 @@ else{
                 $response["success"] = true;
             }
             else{
-                $response["message"] = "data not inserted to database";
+                $response["message"] = "Data not inserted to database!";
             }
         } 
         else {
@@ -44,6 +41,6 @@ else{
         }
     }
 }
-echo json_encode($response);
 
+echo json_encode($response);
 ?>
