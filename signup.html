@@ -191,9 +191,16 @@
             else{
                 if( cpass == pass)
                 {
-                    let fds = ["userid","pass","mobi"];
-                    var dataString = getDataString(userid,pass,mobi,fds);
-                    $.ajax({
+                  $.post("lib/api/userExists.php",{user : userid},(res)=>{
+                    res = JSON.parse(res);
+                    if(res.success){
+                      alert("User Already Exists");
+                      location.href = "login.html";
+                    }
+                    else{
+                      let fds = ["userid","pass","mobi"];
+                      var dataString = getDataString(userid,pass,mobi,fds);
+                      $.ajax({
                         type:"POST",
                         url:"lib/api/userregister.php",
                         data: dataString,
@@ -203,8 +210,9 @@
                             alert(res.message);
                             location.href = "login.html";
                         }
-
-                    });
+                     });
+                    }
+                  });
                 }else{
                     alert("Confirm password is not matching with password!");
                 }

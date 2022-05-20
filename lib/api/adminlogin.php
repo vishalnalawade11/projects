@@ -3,7 +3,6 @@ session_start();
 require_once("../db.php");
 $response = array("success"  => false , "message" => "user not found");
 
-
 $userid = $_POST['userid'];
 $pass = $_POST['pass'];
 
