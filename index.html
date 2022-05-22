@@ -427,7 +427,10 @@
 
 <script>
 
-$(()=>{
+$(async ()=>{
+  let products = await $.get("lib/api/getProducts.php");
+  console.log(products);
+  
   $("#alogin").click((e)=>{
     e.preventDefault();
     var userid =$("#userid1").val();
