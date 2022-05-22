@@ -1,3 +1,11 @@
+<?php 
+  require_once('lib/db.php');
+  $pid = $_GET['pid'];
+  $q = "select * from tbl_products where productid = '$pid'";
+  $rs = $db->prepare($q);
+  $rs->execute();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,12 +84,12 @@
         </div>
       </div>
     </div>
-
+    <?php while($rw = $rs->fetch()) {  ?>
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a
-              href="shop.html">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Ibuprofen Tablets, 200mg</strong></div>
+              href="shop.html">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"> <?php echo $rw['pname']; ?> </strong></div>
         </div>
       </div>
     </div>
@@ -91,26 +99,22 @@
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img src="images/product_07_large.png" alt="Image" class="img-fluid p-5">
+              <img src= <?php echo $rw['pimg'];?> alt="Image" class="img-fluid p-5">
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-black">Ibuprofen Tablets, 200mg</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus
-              soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas,
-              distinctio, aperiam, ratione dolore.</p>
-            
+            <h2 class="text-black"><?php echo $rw['pname']; ?></h2>
+            <p><?php echo $rw['pdescription']; ?></p>
+            <p>  <strong class="text-primary h4">₹ <?php echo $rw['pprice']; ?>.00 </strong></p>
 
-            <p><del>$95.00</del>  <strong class="text-primary h4">$55.00</strong></p>
-
-            
+            <input type="hidden" id ="h-data"  value = <?php echo $pid; ?> >
             
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 220px;">
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                 </div>
-                <input type="text" class="form-control text-center" value="1" placeholder=""
+                <input type="text" id="quantity" class="form-control text-center" value="1" placeholder=""
                   aria-label="Example text with button addon" aria-describedby="button-addon1">
                 <div class="input-group-append">
                   <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
@@ -118,7 +122,7 @@
               </div>
     
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+            <p><button id="c-add" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</button></p>
 
             <div class="mt-5">
               <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
@@ -183,7 +187,7 @@
                       </tr>
                     </tbody>
                   </table>
-            
+                <?php } ?>
                 </div>
             
               </div>
@@ -279,9 +283,32 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-
+  <script src="scripts/setCartCnt.js"></script>
   <script src="js/main.js"></script>
 
 </body>
 
 </html>
+
+<script>
+  $( ()=>{
+    $('#c-add').click(async ()=>{
+      var pid = $("#h-data").val();
+      var pDetails = await $.get("lib/api/getAproduct.php?pid="+ pid);
+      pDetails = JSON.parse(pDetails);
+      var quant = $("#quantity").val();
+      pDetails['quantity'] = quant;
+      console.log(pDetails);
+      $.ajax({
+        type:"post",
+        dataType:"json",
+        url:"lib/cart/addToCart.php",
+        data:pDetails,
+        cache:false,
+        success:(res)=>{
+          alert(res.message);
+        }
+      })
+    });
+  });
+</script>
