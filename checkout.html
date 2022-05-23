@@ -106,14 +106,15 @@
                 <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                 <select id="c_country" class="form-control">
                   <option value="1">Select a country</option>
-                  <option value="2">bangladesh</option>
-                  <option value="3">Algeria</option>
-                  <option value="4">Afghanistan</option>
-                  <option value="5">Ghana</option>
-                  <option value="6">Albania</option>
-                  <option value="7">Bahrain</option>
-                  <option value="8">Colombia</option>
-                  <option value="9">Dominican Republic</option>
+                  <option value="bangladesh">bangladesh</option>
+                  <option value="India">India</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Colombia">Colombia</option>
+                 
                 </select>
               </div>
               <div class="form-group row">
@@ -127,23 +128,14 @@
                 </div>
               </div>
     
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="c_companyname" class="text-black">Company Name </label>
-                  <input type="text" class="form-control" id="c_companyname" name="c_companyname">
-                </div>
-              </div>
-    
+              
               <div class="form-group row">
                 <div class="col-md-12">
                   <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+                  <input type="textarea" class="form-control" id="c_address" name="c_address" placeholder="Street address">
                 </div>
               </div>
-    
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
-              </div>
+
     
               <div class="form-group row">
                 <div class="col-md-6">
@@ -159,7 +151,7 @@
               <div class="form-group row mb-5">
                 <div class="col-md-6">
                   <label for="c_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_email_address" name="c_email_address">
+                  <input type="text" class="form-control" id="c_email_address" name="c_email_address" required >
                 </div>
                 <div class="col-md-6">
                   <label for="c_phone" class="text-black">Phone <span class="text-danger">*</span></label>
@@ -167,29 +159,10 @@
                 </div>
               </div>
     
-              <div class="form-group">
-                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account"
-                  role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1"
-                    id="c_create_account"> Create an account?</label>
-                <div class="collapse" id="create_an_account">
-                  <div class="py-2">
-                    <p class="mb-3">Create an account by entering the information below. If you are a returning customer
-                      please login at the top of the page.</p>
-                    <div class="form-group">
-                      <label for="c_account_password" class="text-black">Account Password</label>
-                      <input type="email" class="form-control" id="c_account_password" name="c_account_password"
-                        placeholder="">
-                    </div>
-                  </div>
-                </div>
-              </div>
     
     
               <div class="form-group">
-                <label for="c_ship_different_address" class="text-black" data-toggle="collapse"
-                  href="#ship_different_address" role="button" aria-expanded="false"
-                  aria-controls="ship_different_address"><input type="checkbox" value="1" id="c_ship_different_address">
-                  Ship To A Different Address?</label>
+               
                 <div class="collapse" id="ship_different_address">
                   <div class="py-2">
     
@@ -256,12 +229,12 @@
                       <div class="col-md-6">
                         <label for="c_diff_email_address" class="text-black">Email Address <span
                             class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
+                        <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address" required>
                       </div>
                       <div class="col-md-6">
                         <label for="c_diff_phone" class="text-black">Phone <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone"
-                          placeholder="Phone Number">
+                          placeholder="Phone Number" required>
                       </div>
                     </div>
     
@@ -270,34 +243,12 @@
                 </div>
               </div>
     
-              <div class="form-group">
-                <label for="c_order_notes" class="text-black">Order Notes</label>
-                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control"
-                  placeholder="Write your notes here..."></textarea>
-              </div>
+              
     
             </div>
           </div>
           <div class="col-md-6">
-    
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Coupon Code</h2>
-                <div class="p-3 p-lg-5 border">
-    
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
-                  <div class="input-group w-75">
-                    <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code"
-                      aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary btn-sm px-4" type="button" id="button-addon2">Apply</button>
-                    </div>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
-    
+
             <div class="row mb-5">
               <div class="col-md-12">
                 <h2 class="h3 mb-3 text-black">Your Order</h2>
@@ -307,22 +258,12 @@
                       <th>Product</th>
                       <th>Total</th>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>Bioderma <strong class="mx-2">x</strong> 1</td>
-                        <td>$55.00</td>
-                      </tr>
-                      <tr>
-                        <td>Ibuprofeen <strong class="mx-2">x</strong> 1</td>
-                        <td>$45.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
-                      </tr>
+                    <tbody id ="ord">
+                       
+                          
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                        <td class="text-black font-weight-bold"><strong class="it"> </strong></td>
                       </tr>
                     </tbody>
                   </table>
@@ -364,7 +305,7 @@
                   </div>
     
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='thankyou.html'">Place
+                    <button id="p_order" class="btn btn-primary btn-lg btn-block">Place
                       Order</button>
                   </div>
     
@@ -469,3 +410,81 @@
 </body>
 
 </html>
+
+<script>
+  function getDataString(){
+    var string = "";
+    var fn = arguments[arguments.length-1]
+    for(let i =0;i<arguments.length-1;i++ )
+    { 
+      if(i == 0)
+      {
+        string += fn[i]+"="+arguments[i];
+      }else{
+        string +="&"+fn[i]+"="+arguments[i];
+      }
+    }
+    return string;
+  }
+  
+  function sendData(dataString){
+    console.log(dataString);
+    $.ajax({
+      type :"post",
+      url:'lib/api/sendmail.php',
+      dataType:'json',
+      cache:false,
+      data:dataString,
+      success:(res)=>{
+        alert(res.msg);
+        if(res.success){
+          location.href = 'thankyou.html';
+        }
+      }
+   });
+  }
+$( async()=>{
+    var data = await $.get("lib/cart/getCartData.php");
+    data = JSON.parse(data);
+    $(".it").text('₹'+data.total+".00");
+    var d = data.data;
+    for(let i = 0;i<d.length ;i++)
+    {
+      var t = jQuery('<tr>',{}).append(jQuery('<td>',{
+         'text' : d[i][0]+ ' X ' + d[i][1], 
+        }));
+      var t1 = jQuery('<td>',{
+         'text' : '₹'+d[i][2]+".00",
+      });
+      t.append(t1);
+      $('#ord').prepend(t);
+    }
+
+$('#p_order').click(async(e)=>{
+  e.preventDefault();
+  var country = $('#c_country').val();
+  var firstname = $('#c_fname').val();
+  var lastname =$('#c_lname').val();
+  var address = $('#c_address').val();
+  var state = $('#c_state_country').val();
+  var zipcode = $('#c_postal_zip').val();
+  var email = $('#c_email_address').val();
+  var phone = $('#c_phone').val();
+  var name = firstname +" " + lastname;
+  var fnames = ["name","country","address","state","zipcode","email","phone"];
+  var dataString = getDataString(name,country,address,state,zipcode,email,phone,fnames);
+  //console.log(dataString);
+  var d = await $.get("lib/api/userlogged.php");
+  d = JSON.parse(d);
+  if(d.success)
+  {
+    sendData(dataString);
+  }
+  else{
+    alert("User Is Not is not Logged Please Logn !");
+    location.href = "login.html";
+  }
+ });
+});
+</script>
+
