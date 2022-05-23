@@ -57,6 +57,7 @@
                   <li><a href="about.html">About</a></li>
                   <li><a href="contact.html">Contact</a></li>
                   <li class="active"> <a href="login.html">User Login</a> </li>
+                  <li class="ulogged"></li>
                 </ul>
               </nav>
             </div>
@@ -145,11 +146,21 @@
       <script src="js/owl.carousel.min.js"></script>
       <script src="js/jquery.magnific-popup.min.js"></script>
       <script src="js/aos.js"></script>
+      <script src="scripts/setUserLoggedField.js"></script>
       <script src="js/main.js"></script>
 </body>
 </html>
 <script>
-    $(()=>{
+    $(async ()=>{
+
+      let res = await $.get("lib/api/userlogged.php");
+      res= JSON.parse(res);
+      if(res.success)
+      {
+         alert("user is already logged in Please Continue Shopping!");
+         location.href = 'shop.html';
+      }
+      
         $("#u_log").click((e)=>{
             e.preventDefault();
             var userid = $("#email_u").val();
@@ -166,7 +177,7 @@
                     success : (res)=>{
                        res = JSON.parse(res);
                        alert(res.message);
-                       if(res.success) location.href = "dashbord.html";
+                       if(res.success) location.href = "shop.html";
                     }
                 });
             }

@@ -48,7 +48,7 @@ $cnt=1;
          <td><b>Total Price</b></td>
          <td><b>₹.".number_format($total, 2)."</b></td>
          <td>
-            <a href='checkout.html'> <button class='btn btn-warning btn-block' >Checkout</button></a>
+            <a href='checkout.php'> <button class='btn btn-warning btn-block' >Checkout</button></a>
             </td>
             <td>
               <button class='btn btn-warning btn-block clearAll' id='".$value['id']."'>Clear All</button>

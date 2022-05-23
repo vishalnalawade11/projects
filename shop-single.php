@@ -69,6 +69,7 @@
                 </li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li class="ulogged"></li>
               </ul>
             </nav>
           </div>
@@ -76,7 +77,7 @@
             <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
             <a href="cart.html" class="icons-btn d-inline-block bag">
               <span class="icon-shopping-bag"></span>
-              <span class="number">4</span>
+              <span class="number pcnt"> 0</span>
             </a>
             <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
                 class="icon-menu"></span></a>
@@ -284,6 +285,7 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="scripts/setCartCnt.js"></script>
+  <script src="scripts/setUserLoggedField.js"></script>
   <script src="js/main.js"></script>
 
 </body>

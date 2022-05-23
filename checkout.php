@@ -256,12 +256,12 @@
                       <div class="col-md-6">
                         <label for="c_diff_email_address" class="text-black">Email Address <span
                             class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
+                        <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address" required>
                       </div>
                       <div class="col-md-6">
                         <label for="c_diff_phone" class="text-black">Phone <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone"
-                          placeholder="Phone Number">
+                          placeholder="Phone Number" required>
                       </div>
                     </div>
     
@@ -270,33 +270,12 @@
                 </div>
               </div>
     
-              <div class="form-group">
-                <label for="c_order_notes" class="text-black">Order Notes</label>
-                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control"
-                  placeholder="Write your notes here..."></textarea>
-              </div>
+              
     
             </div>
           </div>
           <div class="col-md-6">
     
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Coupon Code</h2>
-                <div class="p-3 p-lg-5 border">
-    
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
-                  <div class="input-group w-75">
-                    <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code"
-                      aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary btn-sm px-4" type="button" id="button-addon2">Apply</button>
-                    </div>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
     
             <div class="row mb-5">
               <div class="col-md-12">
@@ -469,3 +448,9 @@
 </body>
 
 </html>
+
+<script>
+$(()=>{
+
+})
+</script>
