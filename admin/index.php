@@ -3,6 +3,7 @@
  if(!isset($_SESSION['admin'])){
     header("Location: ../index.html");
  }
+ require_once("../lib/db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,24 +57,54 @@
           </div>
         </div>
       </div>
-      <h1 class="text-uppercase text-center my-3"> User Dashbord </h1>
-      <div class="container">
-          <div class="row">
-              <div class="col">
-                <form id="p_frm" class="p_frm">
-
-                     <div class="form-group">
-                      <label for="exampleInputEmail1">Product id</label>
-                      <input type="text" class="form-control"  name ="p_id" id="p_id" aria-describedby="emailHelp" placeholder="Enter product id " >
-                    </div>
-                    <input type="submit" id ="s_d" value="submit">
-                </form> 
-              </div> 
-            </div>
+      <h1 class="text-uppercase text-center my-3"> Orders List</h1>
+      <div class="container-fluid py-4">
+        <div class="row">
+        <table class="table table-hover table-striped table-bordered">
+        <thead class="table-dark">
+            <th>ID</th> 
+            <th>Name</th>
+            <th>Email</th> 
+            <th>Date</th>
+            <th>User Id</th>
+            <th>Price</th>
+            <th>Product ID</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Zipcode</th>
+            <th>State</th>
+            <th>country</th>
+            
+        </thead>
+        <tbody>
+        <?php
+					$rs=$db->prepare("select * from tbl_order");
+  					$rs->execute();  
+                    $cnt=1;					
+  					while($row=$rs->fetch())
+				  	{
+				  	  echo "<tr>";	
+                      echo "<td>".$cnt."</td>";
+					            echo "<td>".$row['name']."</td>";	
+					            echo "<td>".$row['email']."</td>";	
+					            echo "<td>".$row['date']."</td>";	
+					            echo "<td>".$row['userid']."</td>";	
+					            echo "<td>".$row['price']."</td>";	   
+                      echo "<td>".$row['productid']."</td>";  
+                      echo "<td>".$row['phone']."</td>";    
+                      echo "<td>".$row['address']."</td>";	
+                      echo "<td>".$row['zipcode']."</td>";
+                      echo "<td>".$row['state']."</td>";
+                      echo "<td>".$row['country']."</td>";
+					  							  
+					  echo "</tr>";	
+                      $cnt++;	
+					}  
+				?>
+        </tbody>
+      </table>
         </div>
-        <button id="cli">click</button>
-
-
+    </div>
 
       <footer class="site-footer">
         <div class="container-fluid" style="background-color:black">

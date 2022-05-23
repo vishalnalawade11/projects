@@ -41,8 +41,7 @@ foreach ($_SESSION['mycart'] as $key => $value) {
  $message.="</table></center>";	
 
        $owner_mail = "medicooproject123@gmail.com";
-   
-                           
+
    
                                           // secure transfer enabled REQUIRED for Gmail
                                            require '../phpmailer/PHPMailerAutoload.php';
