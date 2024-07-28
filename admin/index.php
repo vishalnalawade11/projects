@@ -50,6 +50,7 @@
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
                   <li class="active" ><a href="index.php">Home</a></li>
                   <li><a href="addProducts.php">Add Products</a></li>
+                  <li ><a href="contact.php">Contact</a></li>
                   <li><a href="logout.php">Log Out</a></li>
                 </ul>
               </nav>

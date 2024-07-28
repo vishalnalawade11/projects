@@ -1,17 +1,15 @@
 <?php
  session_start();
- if(!isset($_SESSION['user'])){
+ if(!isset($_SESSION['admin'])){
     header("Location: ../index.html");
  }
  require_once("../lib/db.php");
- $user = $_SESSION['user'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Medicoo &mdash; User </title>
+  <title>Medicoo &mdash; Contact </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
@@ -50,7 +48,9 @@
             <div class="main-nav d-none d-lg-block">
               <nav class="site-navigation text-right text-md-center" role="navigation">
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
-                  <li class="active" ><a href="../index.html">Home</a></li>
+                  <li  ><a href="index.php">Home</a></li>
+                  <li><a href="addProducts.php">Add Products</a></li>
+                  <li class="active" ><a href="contact.php">Contact</a></li>
                   <li><a href="logout.php">Log Out</a></li>
                 </ul>
               </nav>
@@ -58,43 +58,34 @@
           </div>
         </div>
       </div>
-      <h1 class="text-uppercase text-center my-3"> Orders List</h1>
+      <h1 class="text-uppercase text-center my-3"> Contact List</h1>
       <div class="container-fluid py-4">
         <div class="row">
         <table class="table table-hover table-striped table-bordered">
         <thead class="table-dark">
-            <th>ID</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Price</th>
-            <th>Product ID</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Zipcode</th>
-            <th>State</th>
-            <th>country</th>
+            <th>ID</th> 
+            <th>First Name</th>
+            <th>Last Name</th> 
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
             
         </thead>
         <tbody>
         <?php
-					$rs=$db->prepare("select * from tbl_order where userid ='$user'");
+					$rs=$db->prepare("select * from tbl_contact");
   					$rs->execute();  
-                    $cnt=1;	
-                    			
+                    $cnt=1;					
   					while($row=$rs->fetch())
 				  	{
-                          
 				  	  echo "<tr>";	
                       echo "<td>".$cnt."</td>";
-					  echo "<td>".$row['name']."</td>";	
-					  echo "<td>".$row['date']."</td>";	
-					  echo "<td>".$row['price']."</td>";	   
-                      echo "<td>".$row['productid']."</td>";  
-                      echo "<td>".$row['phone']."</td>";    
-                      echo "<td>".$row['address']."</td>";	
-                      echo "<td>".$row['zipcode']."</td>";
-                      echo "<td>".$row['state']."</td>";
-                      echo "<td>".$row['country']."</td>";							  
+					            echo "<td>".$row['fname']."</td>";	
+                      echo "<td>".$row['lname']."</td>";
+					            echo "<td>".$row['email']."</td>";	
+					            echo "<td>".$row['subject']."</td>";	
+					            echo "<td>".$row['message']."</td>";	
+					  							  
 					  echo "</tr>";	
                       $cnt++;	
 					}  
@@ -110,9 +101,10 @@
             <div class="col-md-6 col-lg-3 mb-4 mt-4 mb-lg-0">
   
               <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>Since opening in 2000, we have become masters of our craft. Our commitment to quality products, exceptional services and incomparable customer care keep our community coming back again and again.<br>
-              </p>
+                <h3 class="footer-heading mb-4 text-white">About Us</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio voluptates
+                  sed dolorum excepturi iure eaque, aut unde.</p>
+              </div>
   
             </div>
             <div class="col-lg-3 mx-auto mb-5 mb-lg-0 mt-4">
@@ -131,7 +123,7 @@
                 <ul class="list-unstyled">
                   <li class="address text-white"> Puna Naka, Bhudwar Peth, Solapur, 413003.</li>
                   <li class="phone text-white"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                  <li class="email text-white">Medicooproject123@domain.com</li>
+                  <li class="email text-white">emailaddress@domain.com</li>
                 </ul>
               </div>
   
@@ -143,7 +135,7 @@
               <p>
                 
                 Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved with students of NKOCET , Solapur| This Site is made
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This Site is made
                 with <i class="icon-heart" aria-hidden="true"></i>
                 
               </p>

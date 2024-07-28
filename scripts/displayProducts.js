@@ -2,12 +2,12 @@
 $(async ()=> {
     let products = await $.get("lib/api/getProducts.php");
     products = JSON.parse(products);
-    //console.log(products.data);
     var row = jQuery('<div>',{
         'class':'row'
     });
     for(let i =0; i < products.data.length; i++)
     {
+        console.log(products.data[i].pname);
         var f = jQuery('<div>',{
             'class': 'col-sm-6 col-lg-4 text-center item mb-4',
             'id' :'product'
@@ -22,11 +22,13 @@ $(async ()=> {
         f.append(jQuery('<a>',{
             'href' : 'shop-single.php?pid='+ products.data[i].productid,
         }).append(jQuery('<img>',{
-            'src': products.data[i].pimg,
+            'src':products.data[i].pimg,
             'alt' :'Image',
+            'id':'pimg',
         })));
         f.append(jQuery('<h3>',{
-            'class':'text-dark'
+            'class':'text-dark',
+            'text' : products.data[i].pname,
         }).append(jQuery('<a>',{
             'href' : 'shop-single.php?pid='+ products.data[i].productid,
         })));

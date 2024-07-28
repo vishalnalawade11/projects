@@ -206,8 +206,10 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
               <div class="banner-1-inner align-self-center">
-                <h2>Medicoo  Products</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+              <h2>No prescription? No problem.</h2>
+                <p>
+
+                  Access 10,000+ doctors to get digital prescriptions instantly.
                 </p>
               </div>
             </a>
@@ -216,7 +218,12 @@
             <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');">
               <div class="banner-1-inner ml-auto  align-self-center">
                 <h2>Rated by Experts</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+                <p>Stay connected to your preferred doctor.
+
+                  Get digital prescriptions and share 24x7 health data with your doctor.
+                  Get intelligent health insights everyday.
+
+                  Stay on top of your daily wellness with smart nudges, reminders and tips.
                 </p>
               </div>
             </a>
@@ -232,9 +239,9 @@
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
             <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio voluptates
-                sed dolorum excepturi iure eaque, aut unde.</p>
+            <h3 class="footer-heading mb-4">About Us</h3>
+              <p>Since opening in 2000, we have become masters of our craft. Our commitment to quality products, exceptional services and incomparable customer care keep our community coming back again and again.<br>
+              </p>
             </div>
 
           </div>
@@ -254,7 +261,7 @@
               <ul class="list-unstyled">
                 <li class="address"> Puna Naka, Bhudwar Peth, Solapur, 413003.</li>
                 <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
-                <li class="email">emailaddress@domain.com</li>
+                <li class="email">Medicooproject123@domain.com</li>
               </ul>
             </div>
 
@@ -266,7 +273,7 @@
             <p>
              
               Copyright &copy;
-              <script>document.write(new Date().getFullYear());</script> All rights reserved | This Site is made
+              <script>document.write(new Date().getFullYear());</script> All rights reserved with the students of NKOCET, Solapur | This Site is made
               with <i class="icon-heart" aria-hidden="true"></i> 
              
             </p>

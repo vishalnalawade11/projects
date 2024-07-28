@@ -25,9 +25,10 @@ else{
     if ($_FILES["p_img"]["size"] > 5000000) $response["message"] ="Sorry, your file is too large.";
     else{
         if(move_uploaded_file($_FILES["p_img"]["tmp_name"], $target_file)) {
-            $query = "insert into tbl_products (productid, pname, pdescription, pimg,pcategory,pingredients,pprice)
-            values('$pid','$pname','$pdesc','$img','$pcat','$pingr','$price')";
-            if($db->exec($query)){
+           $q = "insert into tbl_products( productid, pname, pdescription, pimg, pcategory, pingedients, pprice) 
+             values ('".$pid."','".$pname."','".$pdesc."','".$target_file."','".$pcat."','".$pingr."','".$price."')";
+
+            if($db->exec($q)){
                 $response["message"] = "Data Saved Successfully to the Database!";
                 $response["success"] = true;
             }

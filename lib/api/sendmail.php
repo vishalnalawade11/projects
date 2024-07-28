@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once("../db.php");
+
 $res = array("success" => false,"msg" => "email not send");
+
 $name = $_POST['name'];
 $state = $_POST['state'];
 $zipcode = $_POST['zipcode'];
@@ -21,7 +23,7 @@ function function_alert($message) {
        //echo "<script>window.open('../index.php','_self')</script>";         
    } 
 
-$message = "
+$message = " 
     <h2 align='center' text-color='green'>Payment Successfull</h2>
     <h3 align='center'>Order Delivery</h3>
   <center>
@@ -85,8 +87,8 @@ foreach ($_SESSION['mycart'] as $key => $value) {
                                             foreach ($_SESSION['mycart'] as $key => $value) {
                                             $pid = $value['id'];
                                             $price = $value['quantity'] * $value['price'];
-                                            $q = "INSERT INTO `tbl_order`(`name`, `email`, `date`, `userid`, `price`, `productid`, `phone`, `address`, `zipcode`, `state`, `county`) VALUES 
-                                            ($name,$uemail,$date,$user,$price,$pid,$phone,$address,$zipcode,$state,$country)";
+                                            $q = "insert into tbl_order(name, email, date, userid, price, productid, phone, address, zipcode, state, country) values 
+                                            ('".$name."','".$uemail."','".$date."','".$user."','".$price."','".$pid."','".$phone."','".$address."','".$zipcode."','".$state."','".$country."')";
                                             if($db->exec($q))
                                              {
                                                  continue;

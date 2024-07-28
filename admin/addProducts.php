@@ -48,6 +48,7 @@ if(!isset($_SESSION['admin'])){
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
                   <li  ><a href="index.php">Home</a></li>
                   <li class="active" ><a href="addProducts.php">Add Products</a></li>
+                   <li><a href="contact.php">Contact</a></li>
                   <li><a href="logout.php">Log Out</a></li>
                 </ul>
               </nav>
@@ -97,8 +98,10 @@ if(!isset($_SESSION['admin'])){
                     </div>
                   <div class="form-group">
                         <input type="submit" class="btn btn-primary" id="c_sign" name="c_sign" value="Add Product" >
+                        
                   </div> 
                   </form>
+                  <button class="btn btn-danger" id="1rs" >Reset</button>
 
               </div>
           </div>
@@ -167,12 +170,12 @@ if(!isset($_SESSION['admin'])){
       <script src="../js/main.js"></script>   
 </body>
 </html>
-<script type="text/javascript ">
+<script type>
     $(()=>{
         $('#p_frm').on('submit',function (e){
             e.preventDefault();
             var form_data = new FormData(this);
-            var img = $("p_img").val();
+            var img = $("#p_img").val();
             if(img == "" ){
                 alert("Please Select image");
                 return false;
@@ -188,7 +191,7 @@ if(!isset($_SESSION['admin'])){
                           processData: false,
                           success:(res)=>{
                                 alert(res.message);
-                                if(res.success) $("p_frm")[0].reset();
+                                if(res.success) $("#p_frm")[0].reset();
                             }
                     });
                  return false;
@@ -206,5 +209,13 @@ if(!isset($_SESSION['admin'])){
             return false;
         }
       });
+    });
+    $("#1rs").click(()=>{
+      var i = confirm("Are you sure ?");
+      if(i == true)
+      {
+        $("#p_frm")[0].reset();
+        
+      }
     });
 </script>
